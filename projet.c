@@ -153,6 +153,86 @@ void deleteProduct(stock **head, char name[20], historique **first, date date)
     }
     curr->suiv = newHis;
 }
+// modifier le produit
+void modifyProduct(stock **head, char name[20], char newName[20], int newQuantity, float Newprice)
+{
+    stock *current = *head;
+    stock *aux = *head;
+    int test;
+    test = 0;
+    while (aux->suiv != NULL)
+    {
+        aux = aux->suiv;
+    }
+    if (strcmp(aux->val.name, name) == 0)
+    {
+        strcpy(current->val.name, newName);
+        current->val.quantity = newQuantity;
+        current->val.price = Newprice;
+        test = 1;
+    }
+    while ((head != NULL) && (test == 0))
+    {
+        if (strcmp(current->val.name, name) == 0)
+        {
+            strcpy(current->val.name, newName);
+            current->val.quantity = newQuantity;
+            current->val.price = Newprice;
+            test = 1;
+        }
+        current = current->suiv;
+    }
+    if (test == 0)
+    {
+        printf("the willing product is not in the stock");
+    }
+}
+void RechercheProduct(stock **head, char name[20])
+{
+    stock *aux = *head;
+    stock *current = *head;
+    int test;
+    test = 0;
+    while (current->suiv != NULL)
+    {
+        current = current->suiv;
+    }
+    if (strcmp(current->val.name, name) == 0)
+    {
+        test = 1;
+        printf(" le produit existe dans le stock \n");
+    }
+    while ((aux->suiv != NULL) && (test == 0))
+    {
+        if (strcmp(aux->val.name, name) == 0)
+        {
+            test = 1;
+            printf(" le produit existe dans le stock \n");
+        }
+        else
+        {
+            aux = aux->suiv;
+        }
+    }
+
+    if (test == 0)
+    {
+        printf("le produit demandÃ© n'est pas disponible dans le stock \n");
+        return;
+    }
+}
+// Fonction pour afficher le stock actuel
+void printStock(stock **head)
+{
+    stock *aux = *head;
+    printf("Stock actuel :\n");
+    while (aux != NULL)
+    {
+        printf("- %s : quantity: %d, price: %f ", aux->val.name, aux->val.quantity, aux->val.price);
+        printf("\n");
+        aux = aux->suiv;
+    }
+}
 // afficher l'historique jour par jour
 void HistoriqueMois(historique **head, int mois)
 {
