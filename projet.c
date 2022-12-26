@@ -173,7 +173,7 @@ void addProduct(stock **head, product product, date date, historique **first)
     historique *newHis = (historique *)malloc(sizeof(historique));
     newHis->produit = product;
     newHis->date = date;
-    strcpy(newHis->description, "ajout \n");
+    strcpy(newHis->description, "added \n");
     newHis->suiv = NULL;
     // Si la liste est vide, mettez le nouvel élément en tête de liste
     if (*first == NULL)
@@ -310,7 +310,7 @@ void deleteProduct(stock **head, char name[20], historique **first, date date)
     historique *newHis = (historique *)malloc(sizeof(historique));
     newHis->produit = p1;
     newHis->date = date;
-    strcpy(newHis->description, "suppression \n");
+    strcpy(newHis->description, " deleted \n");
     newHis->suiv = NULL;
     historique *curr = *first;
     while (curr->suiv != NULL)
@@ -366,14 +366,14 @@ void RechercheProduct(stock **head, char name[20])
     if (strcmp(current->val.name, name) == 0)
     {
         test = 1;
-        printf(" le produit existe dans le stock \n");
+        printf(" the product does exist in stock \n");
     }
     while ((aux->suiv != NULL) && (test == 0))
     {
         if (strcmp(aux->val.name, name) == 0)
         {
             test = 1;
-            printf(" le produit existe dans le stock \n");
+            printf(" the product does exist in stock \n");
         }
         else
         {
@@ -383,7 +383,7 @@ void RechercheProduct(stock **head, char name[20])
 
     if (test == 0)
     {
-        printf("le produit demandÃ© n'est pas disponible dans le stock \n");
+        printf("the product is not available in stock \n");
         return;
     }
 }
