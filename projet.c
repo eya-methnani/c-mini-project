@@ -409,7 +409,7 @@ void HistoriqueMois(historique **head, int mois)
         {
             printf("%s :\n ", aux->produit.name);
             printf("%s : \n", aux->description);
-            printf("%d / %d / %d", aux->date.day, aux->date.month, aux->date.year);
+            printf("%d / %d / %d\n", aux->date.day, aux->date.month, aux->date.year);
         }
         aux = aux->suiv;
     }
@@ -424,7 +424,7 @@ void Historiqueyear(historique **head, int year)
         {
             printf("%s :\n", aux->produit.name);
             printf("%s :\n", aux->description);
-            printf("%d / %d / %d", aux->date.day, aux->date.month, aux->date.year);
+            printf("%d / %d / %d\n", aux->date.day, aux->date.month, aux->date.year);
         }
         aux = aux->suiv;
     }
